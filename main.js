@@ -1,40 +1,55 @@
-class LearningPath{
+class Course{
     constructor({
         name,
-        logo,
-        especializaciones = [],
+        classes = [],
     }){
         this.name = name;
-        this.logo = logo,
-        this.especializaciones = especializaciones;
+        this.classes = classes;
+    }
+}
+class LearningPath{
+    // constructor({
+    //     name,
+    //     logo,
+    //     especializaciones = [],
+    // }){
+    //     this.name = name;
+    //     this.logo = logo,
+    //     this.especializaciones = especializaciones;
+    // }
+    constructor({
+        name,
+        courses = [],
+    }){
+        this.name = name;
+        this.courses = courses;
     }
 }
 
 const escuelaWeb = new LearningPath({
-    name: "Desarrollo Web", 
-    logo: "Logo", 
-    especializaciones: [
-        "FrontEnd",
-        "BackEnd",
-        "FullStack"
+    name: "Escuela de Desarrollo Web", 
+    courses: [
+        "Curso de Programación Básica",
+        "Curso Definitivo de HTML y CSS",
+        "Curso Práctico de HTML y CSS"
     ],
 });
 
 const escuelaData = new LearningPath({
     name: "Data Science",
-    logo: "Logo",
-    especializaciones: [
-        "Data Analyst", 
-        "Data Scientis"
+    courses: [
+        "Curso de Programación Básica",
+        "Curso DataBusiness", 
+        "Curso Dataviz"
     ],
 });
 
 const escuelaVideogames = new LearningPath({
-    name: "Videjuegos",
-    logo: "Logo",
-    especializaciones: [
-        "Unity",
-        "Unreal Engine"
+    name: "Escuela de Videjuegos",
+    courses: [
+        "Curso de Programación Básica",
+        "Curso de Unity",
+        "Curso de Unreal Engine"
     ],
 });
 
