@@ -1,53 +1,86 @@
-// Objeto literal
-const natalia = {
-    name: "Natalia",
-    age: 20,
-    cursosAprobados: [
-        "Curso Definitivo de HTML y CSS",
-        "Curso Práctico de HTML y CSS",
-    ],
-    aprobarCurso(nuevoCurso){
-        this.cursosAprobados.push(nuevoCurso);
-    },
-}; 
-
-function Student(name, age, cursosAprobados){
-    this.name = name;
-    this.age = age;
-    this.cursosAprobados = cursosAprobados;
-}
-
-Student.prototype.aprobarCurso = function (nuevoCurso){
-    this.cursosAprobados.push(nuevoCurso);
-}
-
-const juanita = new Student(
-    "Juanita", 15, ["Curso de Introducción a la Producción de Videojuegos", "Curso de Creación de Personajes"]
-);
-
-// Prototipos con sintaxis de clases
-class Student2{
+class LearningPath{
     constructor({
         name,
-        age,
-        email,
-        cursosAprobados = [],
-        
-    }) {
+        logo,
+        especializaciones = [],
+    }){
         this.name = name;
-        this.email = email;
-        this.age = age;
-        this.cursosAprobados = cursosAprobados;
+        this.logo = logo,
+        this.especializaciones = especializaciones;
     }
-    
-    aprobarCurso(nuevoCurso){
-        this.cursosAprobados.push(nuevoCurso);
-    }
-
 }
 
-const panfilito = new Student2({
-    email : "panfis@gmail.com",
-    name: "Panfilo",
-    age: 28,
+const escuelaWeb = new LearningPath({
+    name: "Desarrollo Web", 
+    logo: "Logo", 
+    especializaciones: [
+        "FrontEnd",
+        "BackEnd",
+        "FullStack"
+    ],
 });
+
+const escuelaData = new LearningPath({
+    name: "Data Science",
+    logo: "Logo",
+    especializaciones: [
+        "Data Analyst", 
+        "Data Scientis"
+    ],
+});
+
+const escuelaVideogames = new LearningPath({
+    name: "Videjuegos",
+    logo: "Logo",
+    especializaciones: [
+        "Unity",
+        "Unreal Engine"
+    ],
+});
+
+class Student{
+    constructor({
+        name,
+        email,
+        username,
+        twitter = undefined,
+        instagram = undefined,
+        facebook = undefined,
+        approvedCourses = [],
+        learningPaths = [],
+    }){
+        this.name     =   name;
+        this.email    =   email;
+        this.username =   username;
+        this.socialMedia = {
+            twitter,
+            instagram,
+            facebook,
+        };
+        this.approvedCourses = approvedCourses;
+        this.learningPaths = learningPaths;
+    }
+}
+
+const juan2 = new Student({
+    name: "JuanDC",
+    username: "juandc",
+    email: "juanito@plati.com",
+    twitter: "fjuandc",
+    learningPaths: [
+        escuelaWeb,
+        escuelaVideogames,
+    ],
+});
+
+const miguelito = new Student({
+    name: "Miguelito",
+    username: "mike",
+    email: "mike@plati.com",
+    instagram: "happymike",
+    learningPaths: [
+        escuelaWeb,
+        escuelaData,
+    ],
+});
+
